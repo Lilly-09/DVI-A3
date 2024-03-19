@@ -1,0 +1,40 @@
+import java.util.*;
+
+class Organization implements Cloneable {
+    private int organizationCode;
+    private String organizationName;
+    private String organizationAddress;
+
+    public Organization(int organizationCode, String organizationName, String organizationAddress) {
+        this.organizationCode = organizationCode;
+        this.organizationName = organizationName;
+        this.organizationAddress = organizationAddress;
+    }
+
+    public void printObjectDetails() {
+        System.out.println("Organization Code: " + organizationCode);
+        System.out.println("Organization Name: " + organizationName);
+        System.out.println("Organization Address: " + organizationAddress);
+    }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
+}
+
+public class CloningExample {
+    public static void main(String[] args) throws CloneNotSupportedException {
+        Organization organization1 = new Organization(1, "Google", "1600 Amphitheatre Parkway, Mountain View, CA 94043");
+
+        // Cloning the organization object
+        Organization organization2 = (Organization) organization1.clone();
+
+        // Printing the object details of both the objects
+        System.out.println("Organization 1 details:");
+        organization1.printObjectDetails();
+
+        System.out.println("\nOrganization 2 details:");
+        organization2.printObjectDetails();
+    }
+}
